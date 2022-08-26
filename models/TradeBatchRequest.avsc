@@ -1,0 +1,134 @@
+{
+  "namespace": "com.dexilon.ta.kafka.dto",
+  "type": "record",
+  "name": "AggregateResult",
+  "fields": [
+    {
+      "name": "batchId",
+      "type": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "transactions",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "Transaction",
+          "type": "record",
+          "fields": [
+            {
+              "name": "state",
+              "type": [
+                {
+                  "namespace": "com.dexilon.ta.kafka.dto",
+                  "type": "record",
+                  "name": "Trade",
+                  "fields": [
+                    {
+                      "name": "transactionId",
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "ask",
+                      "type": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "makerAddress",
+                      "type" : {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "takerAddress",
+                      "type" : {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "asset",
+                      "type" : {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "amount",
+                      "type": {
+                        "type": "bytes",
+                        "logicalType": "decimal",
+                        "precision": 4,
+                        "scale": 2
+                      }
+                    },
+                    {
+                      "name": "price",
+                      "type": {
+                        "type": "bytes",
+                        "logicalType": "decimal",
+                        "precision": 12,
+                        "scale": 6
+                      }
+                    },
+                    {
+                      "name": "fee",
+                      "type": {
+                        "type": "bytes",
+                        "logicalType": "decimal",
+                        "precision": 20,
+                        "scale": 8
+                      }
+                    },
+                    {
+                      "name": "makerLeverage",
+                      "type": {
+                        "type": "int"
+                      }
+                    },
+                    {
+                      "name": "takerLeverage",
+                      "type": {
+                        "type": "int"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "namespace": "com.dexilon.ta.kafka.dto",
+                  "type": "record",
+                  "name": "Withdraw",
+                  "fields": [
+                    {
+                      "name": "transactionId",
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "address",
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "amount",
+                      "type": {
+                        "type": "bytes",
+                        "logicalType": "decimal",
+                        "precision": 20,
+                        "scale": 8
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

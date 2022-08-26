@@ -1,0 +1,31 @@
+{
+  "namespace": "com.dexilon.ta.kafka.dto",
+  "type": "record",
+  "name": "TransactionBatchResult",
+  "fields": [
+    {
+      "name": "transactions",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "TransactionResult",
+          "type": "record",
+          "fields": [
+            {
+              "name": "transactionId",
+              "type": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "link",
+              "type": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
